@@ -1,20 +1,29 @@
+import bodyParser from "body-parser";
 import cors from "cors";
 import express from "express";
-import mongoose from "mongoose";
+import connect from "./database/mongoDb.js";
+import passport from "passport";
+import passportConfig from "./config/passport.js";
+import * as dotenv from "dotenv";
+import routes from "./routes/index.js";
 
-const Port = 4000;
+dotenv.config();
+const Port = process.env.PORT || 4000;
 const app = express();
 
-app.use(cors);
+app.use(cors());
+app.use(bodyParser.json());
+app.use(passport.initialize());
+passportConfig(passport);
 
-await mongoose.connect(
-  "mongodb+srv://vasudev:vasu2000@vasudev-mern.8znkqln.mongodb.net/?retryWrites=true&w=majority"
-);
-console.log("mongoDb connected");
+await connect();
 
 app.get("/", (req, res) => {
   res.send("Hello World");
 });
+
+app.use("/", routes);
+
 app.listen(Port, () => {
   console.log("Server is running at http://localhost:4000");
 });
