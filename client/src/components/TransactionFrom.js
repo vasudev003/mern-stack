@@ -17,7 +17,6 @@ const InitialForm = {
   description: "",
   date: new Date(),
   category_id: "",
-  type: "expenses",
 };
 
 export default function TransactionFrom({
@@ -27,7 +26,6 @@ export default function TransactionFrom({
   const { categories } = useSelector((state) => state.auth.user);
   const token = Cookies.get("token");
   const [form, setForm] = useState(InitialForm);
-  const types = ["expense", "income", "transfer"];
 
   useEffect(() => {
     if (editTransaction.amount !== undefined) {
@@ -93,18 +91,6 @@ export default function TransactionFrom({
       <CardContent>
         <Typography variant="h6">Add New Transaction</Typography>
         <Box component="form" onSubmit={handleSubmit} sx={{ display: "flex" }}>
-          <Autocomplete
-            value={form.type}
-            onChange={(event, newValue) => {
-              setForm({ ...form, type: newValue });
-            }}
-            id="type"
-            options={types}
-            sx={{ width: 200, marginRight: 5 }}
-            renderInput={(params) => (
-              <TextField {...params} size="small" label="Type" />
-            )}
-          />
           <TextField
             sx={{ marginRight: 5 }}
             id="outlined-basic"
@@ -140,7 +126,7 @@ export default function TransactionFrom({
           <Autocomplete
             value={getCategoryNameById()}
             onChange={(event, newValue) => {
-              setForm({ ...form, category_id: newValue._id });
+              setForm({ ...form, category: newValue._id });
             }}
             id="controllable-states-demo"
             options={categories}

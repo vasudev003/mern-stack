@@ -21,16 +21,20 @@ export default function CategoryFrom({ editCategory }) {
   const user = useSelector((state) => state.auth.user);
   const dispatch = useDispatch();
   const token = Cookies.get("token");
-  const [form, setfrom] = useState(InitialForm);
+  const [form, setForm] = useState(InitialForm);
 
   useEffect(() => {
     if (editCategory._id !== undefined) {
-      setfrom(editCategory);
+      setForm(editCategory);
     }
   }, [editCategory]);
 
   function handleChange(e) {
-    setfrom({ ...form, [e.target.name]: e.target.value });
+    setForm({ ...form, [e.target.name]: e.target.value });
+  }
+
+  function handleDate(newValue) {
+    setForm({ ...form, date: newValue });
   }
 
   async function handleSubmit(e) {
@@ -41,7 +45,7 @@ export default function CategoryFrom({ editCategory }) {
   function reload(res, _user) {
     if (res.ok) {
       dispatch(setUser({ user: _user }));
-      setfrom(InitialForm);
+      setForm(InitialForm);
     }
   }
 
@@ -109,7 +113,7 @@ export default function CategoryFrom({ editCategory }) {
           <Autocomplete
             value={getCategoryNameById()}
             onChange={(event, newValue) => {
-              setfrom({ ...form, icon: newValue });
+              setForm({ ...form, icon: newValue });
             }}
             id="icons"
             options={icons}
