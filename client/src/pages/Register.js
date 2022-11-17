@@ -1,7 +1,6 @@
 import * as React from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import Link from "@mui/material/Link";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
@@ -13,6 +12,7 @@ import Container from "@mui/material/Container";
 
 export default function Register() {
   const navigate = useNavigate();
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -30,13 +30,12 @@ export default function Register() {
       },
     });
     if (res.ok) {
-      navigate("/login");
+      navigate("/");
     }
   };
 
   return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
+    <Container>
       <Box
         sx={{
           marginTop: 8,

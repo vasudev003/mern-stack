@@ -1,10 +1,9 @@
-import React from "react";
-import { Container } from "@mui/material";
+import Container from "@mui/material/Container";
 import TransactionFrom from "../components/TransactionFrom";
 import TransactionsList from "../components/TransactionsList";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
-import TransactionChart from "../components/TransactionChart.js";
+import TransactionChart from "../components/TransactionChart";
 
 export default function Home() {
   const [transactions, setTransactions] = useState([]);

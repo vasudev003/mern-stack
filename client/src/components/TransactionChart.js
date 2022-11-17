@@ -15,7 +15,9 @@ import dayjs from "dayjs";
 
 export default function TransactionChart({ data }) {
   const chartData = data.map((item) => {
-    item.month = dayjs.month(item._id - 1).format("MMMM");
+    item.month = dayjs()
+      .month(item._id - 1)
+      .format("MMMM");
     return item;
   });
   return (

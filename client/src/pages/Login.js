@@ -1,7 +1,6 @@
 import * as React from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import Link from "@mui/material/Link";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
@@ -40,8 +39,7 @@ export default function Login() {
   };
 
   return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
+    <Container>
       <Box
         sx={{
           marginTop: 8,
@@ -88,7 +86,7 @@ export default function Login() {
           </Button>
           <Grid container>
             <Grid item>
-              <RouterLink to="/Register">
+              <RouterLink to="/register">
                 <Link component="span" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>

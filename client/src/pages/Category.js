@@ -36,7 +36,7 @@ export default function Category() {
     if (res.ok) {
       const _user = {
         ...user,
-        categories: user.categories.filter((cat) => cat._id !== id),
+        categories: user.categories.filter((cat) => cat._id != id),
       };
       dispatch(setUser({ user: _user }));
     }
@@ -49,7 +49,7 @@ export default function Category() {
         List of Categories
       </Typography>
       <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} variant="h6" aria-label="simple table">
+        <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
               <TableCell align="center">label</TableCell>

@@ -47,7 +47,9 @@ export default function TransactionsList({
   }
   return (
     <>
-      <Typography sx={{ marginTop: 10 }}>List of Transactions</Typography>
+      <Typography sx={{ marginTop: 10 }} variant="h6">
+        List of Transactions
+      </Typography>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} variant="h6" aria-label="simple table">
           <TableHead>

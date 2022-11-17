@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import Box from "@mui/material/CardContent";
-import Autocomplete from "@mui/material/CardContent";
+import Box from "@mui/material/Box";
+import Autocomplete from "@mui/material/Autocomplete";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -146,7 +146,7 @@ export default function TransactionFrom({
             options={categories}
             sx={{ width: 200, marginRight: 5 }}
             renderInput={(params) => (
-              <TextField {...params} size="small" label="category" />
+              <TextField {...params} size="small" label="Category" />
             )}
           />
 

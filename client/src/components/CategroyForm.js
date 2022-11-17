@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import Box from "@mui/material/CardContent";
-import Autocomplete from "@mui/material/CardContent";
+import Box from "@mui/material/Box";
+import Autocomplete from "@mui/material/Autocomplete";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Cookies from "js-cookie";
@@ -76,7 +76,7 @@ export default function CategoryFrom({ editCategory }) {
     const _user = {
       ...user,
       categories: user.categories.map((cat) =>
-        cat._id === editCategory._id ? form : cat
+        cat._id == editCategory._id ? form : cat
       ),
     };
     reload(res, _user);
@@ -98,7 +98,8 @@ export default function CategoryFrom({ editCategory }) {
             sx={{ marginRight: 5 }}
             id="outlined-basic"
             label="Label"
-            size="text"
+            type="text"
+            size="small"
             name="label"
             variant="outlined"
             value={form.label}
